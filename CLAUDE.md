@@ -1,10 +1,14 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
 
 ## What this repository is
 
-A personal knowledge base on specialty coffee in Malaga, Spain — structured as markdown files. No code, no build system. The goal is to evolve into a public consumer guide.
+A specialty coffee knowledge base for Málaga, Spain — structured markdown pages backed by Notion databases, with a suite of Claude Code skills for AI-assisted research and data maintenance. The goal is to evolve into a public consumer guide.
+
+Two layers:
+- **Content layer** — markdown pages covering concepts, roasters, cafes, brewing, and tasting
+- **Workflow layer** — specs, skills, and tracking files that keep the knowledge base accurate and growing
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the full vision, success definition, and task list.
 
@@ -17,10 +21,23 @@ See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the full vision, success definition, 
 - `pages/tasting/` — personal tasting log
 - `specs/` — specs for all content before implementation
 - `STATUS_BOARD.md` — topic tracker with status per file
+- `GAPS.md` — blank or uncertain fields per roaster, updated by the add-roaster skill
 
 ## External tools
 
-- **Notion "Roasters" database** — primary tracking tool for all roasters (Malaga, Spain, Canary Islands): quality, offerings, how to buy, delivery info. Not Malaga-specific.
+- **Notion Roasters DB** (data source `d38df7d9-d3b7-4a6b-8db2-dcc0398baad4`) — primary tracking tool for all roasters: quality signals, offerings, delivery logistics
+- **Notion Beans DB** (data source `c08fa0f2-84a0-494f-967d-1842a961b10a`) — every coffee offering from tracked roasters: origin, process, variety, SCA score, price, image
+- **Notion Tries DB** — personal tasting records linked to beans
+
+## Skills
+
+Claude Code skills live in `.claude/skills/`. Each skill automates a recurring workflow:
+
+- `/add-roaster <URL>` — researches a roaster's homepage with Playwright, creates a Notion Roasters DB entry, writes a field-mapping reference file for future bean imports, updates GAPS.md, and adds structured content to the Notion page body
+- `/add-bean <URL>` — opens a product page, extracts all fields (origin, process, variety, SCA score, prices, image), and creates a Beans DB entry
+- `/update-roaster <name>` — fetches the roaster's current product listing and adds any offerings not yet in the Beans DB
+
+Roaster-specific field mappings (label language, size variants, image extraction method) live in `.claude/skills/add-bean/references/`.
 
 ## Workflow
 
@@ -38,7 +55,8 @@ Implementation only starts after the spec is reviewed and agreed. If reality div
 
 - English only
 - Files link to related files using relative paths
-- STATUS_BOARD.md should be updated when files are added or their status changes
+- `STATUS_BOARD.md` should be updated when files are added or their status changes
+- `GAPS.md` should be updated when missing fields are filled in or new roasters are added
 
 ## Content scope
 
@@ -49,4 +67,4 @@ Implementation only starts after the spec is reviewed and agreed. If reality div
 
 ## Owner context
 
-The owner is a deep coffee enthusiast living in Malaga, using AeroPress and Clever Dripper with a manual grinder and scale. Trusted local roasters (with known flaws): Mountain Coffee, Artisan, La Hacienda, Kima, Bertrani.
+The owner is a deep coffee enthusiast living in Malaga, using AeroPress and Clever Dripper with a manual grinder and scale. Trusted local roasters (with known flaws): Mountain Coffee, Artisan, La Hacienda, Kima, Bertani, Delicotte, Santa Coffee.
