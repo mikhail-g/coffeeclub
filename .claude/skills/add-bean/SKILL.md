@@ -10,8 +10,8 @@ Add a new entry to the Notion Beans DB from the product page at: $ARGUMENTS
 1. Open the URL with Playwright in headed mode: `playwright-cli open --headed $ARGUMENTS`
 2. Take a snapshot. Extract every field available from the main product view.
 3. If an "Información adicional" tab exists, click it and check for extra data (usually just weight/grind options — no new bean data).
-4. Search the Notion Roasters DB (data source `d38df7d9-d3b7-4a6b-8db2-dcc0398baad4`) for the roaster by name or domain. Record its Notion page URL.
-5. Create a new page in the Beans DB (data source `c08fa0f2-84a0-494f-967d-1842a961b10a`) with all extracted fields.
+4. Search the Roasters DB for the roaster by name or domain — see `specs/notion-databases.md` for the data source ID. Use `notion-search` with `data_source_url`, `page_size: 5`, `max_highlight_length: 0`. Record its Notion page URL.
+5. Create a new page in the Beans DB — see `specs/notion-databases.md` for the data source ID. Include all extracted fields.
 6. Set `Last Updated` to today's date.
 
 ## Fields to extract

@@ -51,7 +51,7 @@ Extract:
 
 ### 5. Create Roasters DB entry in Notion
 
-Use `mcp__notion__notion-create-pages` with data source `d38df7d9-d3b7-4a6b-8db2-dcc0398baad4`.
+Use `mcp__notion__notion-create-pages` — see `specs/notion-databases.md` for the Roasters data source ID.
 
 Set all fields found: Name, Site, Shop URL, Instagram, Free Delivery From (€), Delivery Organization, Buy In Person, Address, Notes (quirks).
 
@@ -145,4 +145,4 @@ Leave out any bullet where the data was not found.
 - If no shop/products URL is found, leave Shop URL blank and note it in the report
 - If geographic scope cannot be determined from the site, ask the user before step 8
 - If a reference file already exists for this domain, update it rather than overwriting
-- Do not create a Notion entry if the roaster already exists in the Roasters DB — update instead
+- Do not create a Notion entry if the roaster already exists in the Roasters DB — update instead. Check with `notion-search` scoped to the Roasters DB (`data_source_url`, `page_size: 3`, `max_highlight_length: 0`) — see `specs/notion-databases.md` for the data source ID
