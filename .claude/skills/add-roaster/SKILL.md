@@ -1,5 +1,5 @@
 ---
-description: Add a new roaster to the Roasters DB, create an add-bean reference file, and update the roasters page
+description: Add a new roaster to the Roasters DB, create an add-bean reference file, and add structured info to the Notion page content
 allowed-tools: Bash, mcp__notion__notion-create-pages, mcp__notion__notion-fetch, mcp__notion__notion-search
 ---
 
@@ -100,20 +100,27 @@ Add a bullet to the `## Roaster-specific references` section in `.claude/skills/
 - [Roaster Name](references/<domain>.md) — <one-line summary of key quirks>
 ```
 
-### 8. Add entry to the roasters markdown page
+### 8. Add structured info to the Notion page content
 
-Based on geographic scope:
-- **Malaga** → `pages/roasters/malaga.md` — use malaga template (Location, Buy in person, Ships, Available at, Coffees tried table)
-- **Spain** → `pages/roasters/spain.md` — use spain template (City, Ships to Malaga, Price range, Roast style, Transparency level, Subscription)
-- **Canary Islands** → `pages/roasters/canary-islands.md`
+Use `mcp__notion__notion-update-page` with `command: replace_content` to add the following fields as a bullet list to the page body:
 
-Insert in the `## Roasters` section. Replace `> To fill in` placeholder if it's the first entry.
+```
+- **Location:** <city> (<physical store / online only>)
+- **Website / Instagram:** [<domain>](<site url>) / [@<handle>](<instagram url>)
+- **Buy in person:** yes / no
+- **Ships:** yes (<free from €X via Carrier>) / no / unknown
+- **Price range:** ~€X/250g
+- **Roast style:** Filter / Espresso / Omni
+- **Transparency level:** <SCA score per product / farm named / country only>
+- **Available at:** [<shop url label>](<shop url>)
+```
+
+Leave out any bullet where the data was not found.
 
 ### 9. Report
 
 - Notion page URL for the new roaster
 - Path to the new reference file
-- Which roasters markdown page was updated
 - Any fields left blank that the user should fill in manually
 
 ## Rules

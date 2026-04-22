@@ -48,6 +48,7 @@ If the product page is from a roaster with known quirks, read the corresponding 
 - [Kima Coffee](references/kimacoffee.md) — Spanish labels with different names ("Perfil Sensorial:", "Región:", etc.), no explicit Country/Farm label, Shopify API for prices/images
 - [Bertani Café](references/bertanicafe.md) — Spanish labels, simple site builder (no JSON API), single price per product (bag size unstated), image from Pinterest share link
 - [Brewing Dealers](references/brewingdealers.md) — English labels, Shopify API for prices/images, Country embedded in Region string, skip X2/X3/X4 bundle packs
+- [Delicotte](references/delicotte.md) — Spanish labels, WooCommerce (data-product_variations for prices/images), 200g/500g sizes (not 250g/1kg), "Perfil en taza" for cata notes, "Puntaje:" for SCA
 
 ## Rules
 
