@@ -47,6 +47,7 @@ This is the measure. Everything in this project either makes that morning better
 | Sync Artisan Coffee offerings via `/update-roaster` | ✅ Done |
 | Sync Kima Coffee offerings via `/update-roaster` | ✅ Done |
 | Sync Bertani Café offerings via `/update-roaster` | ✅ Done |
+| Sync Brewing Dealers offerings via `/update-roaster` | ✅ Done |
 | Add La Hacienda offerings manually (site blocked by bot protection) | ⬜ To do |
 | Fill in quality and logistics fields for Artisan, Kima, Bertani, La Hacienda | ⬜ To do |
 | Design and implement Recipes DB — structured brew parameters, referenced from Tries as base recipe with per-session adjustments | ✅ Done |

@@ -1,4 +1,4 @@
-# coffai
+# Coffee Club
 
 A specialty coffee knowledge base for Málaga, Spain — combining structured Notion databases with Claude Code skills that handle the research and data entry work.
 
