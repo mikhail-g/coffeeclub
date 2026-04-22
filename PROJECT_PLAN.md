@@ -1,4 +1,4 @@
-# coffai — Project Plan
+# Coffee Club — Project Plan
 
 ---
 
@@ -22,8 +22,6 @@ A shared, live resource for the office coffee club — populated enough to guide
 
 Let people taste the difference themselves rather than explaining it. Create contrast moments — two brews side by side, different beans, let the cup do the talking.
 
-Equipment gap to fix first: wide, shallow glasses for side-by-side comparison (rocks glasses or small bistro glasses). The current tall narrow cups in the office make informal cupping impossible.
-
 ---
 
 ## Success Definition
@@ -35,6 +33,17 @@ This is the measure. Everything in this project either makes that morning better
 ---
 
 ## Tasks
+
+| Goal | Status |
+|---|---|
+| Data & Infrastructure | 🔄 In progress |
+| Club | 🔄 In progress |
+| Sourcing | 🔄 In progress |
+| Skills & Tooling | 🔄 In progress |
+| Brewing | ⬜ Not started |
+| Going Deeper | 🔄 In progress |
+
+---
 
 ### Data & Infrastructure
 
@@ -49,8 +58,12 @@ This is the measure. Everything in this project either makes that morning better
 | Sync Bertani Café offerings via `/update-roaster` | ✅ Done |
 | Sync Brewing Dealers offerings via `/update-roaster` | ✅ Done |
 | Add La Hacienda offerings manually (site blocked by bot protection) | ⬜ To do |
-| Fill in quality and logistics fields for Artisan, Kima, Bertani, La Hacienda | ⬜ To do |
+| Fill in quality and logistics fields for Artisan, Kima, Bertani, La Hacienda | ✅ Done |
 | Design and implement Recipes DB — structured brew parameters, referenced from Tries as base recipe with per-session adjustments | ✅ Done |
+| Design and implement Cafes DB — track specialty cafes in Málaga with quality signals, location, and what they serve | ⬜ To do |
+| Research Málaga-area roasters headquartered elsewhere but roasting in Málaga (Syra Coffee, Hola Coffee, Nomad Coffee, others) | ⬜ To do |
+
+---
 
 ### Club
 
@@ -58,9 +71,33 @@ This is the measure. Everything in this project either makes that morning better
 |---|---|
 | Publish Coffee Club landing page and share with members | ✅ Done |
 | Set up tasting log — Tries DB with enough structure to capture impressions without friction | ✅ Done |
-| Log enough tasting sessions that the Tries DB is useful to members | ⬜ To do |
-| Develop a side-by-side comparison format usable during office brews — informal, no jargon | ⬜ To do |
-| Get wide shallow glasses for side-by-side comparison (rocks glasses or small bistro glasses) | ⬜ To do |
+| Create an easy way to log brew sessions — record the bean, recipe used, and any adjustments | ⬜ To do |
+| Build a tasting rating format — a lightweight way to score the brew and describe the taste in the session | ⬜ To do |
+
+---
+
+### Initiatives
+
+#### Side-by-side comparison
+Introduce contrast moments during office brews — two beans, two cups at once, let the cup do the talking.
+
+| Sub-task | Status |
+|---|---|
+| Formulate the idea clearly | ⬜ To do |
+| Present to the club and see if it lands | ⬜ To do |
+| Get the equipment (wide shallow glasses — rocks glasses or small bistro glasses) | ⬜ To do |
+| Set up the practice | ⬜ To do |
+
+---
+
+### Skills & Tooling
+
+| Task | Status |
+|---|---|
+| Add `/fetch-db` skill — queries Notion with filters rather than fetching all entries; reduces empty-filter calls when looking up a specific roaster or bean | ✅ Done |
+| Document how to set the Location (place) field — required sub-fields (name, address, latitude, longitude), geocoding approach; referenced by `/add-roaster` and future `/add-cafe` | ⬜ To do |
+
+---
 
 ### Sourcing
 
@@ -73,6 +110,8 @@ This is the measure. Everything in this project either makes that morning better
 | Know which Spanish and Canarian roasters are worth ordering from and ship reliably to Malaga | ⬜ To do |
 | Know which Malaga cafes genuinely understand what they serve | ⬜ To do |
 
+---
+
 ### Brewing
 
 | Task | Status |
@@ -82,16 +121,20 @@ This is the measure. Everything in this project either makes that morning better
 | Understand omni roast vs light/filter roast — which works better on AeroPress and why | ⬜ To do |
 | Know what water to use in Malaga, why tap water is unsuitable, and which bottled or filtered option works best | ⬜ To do |
 
+---
+
 ### Going Deeper
+
+Statuses: ⬜ To do · 📄 Draft (AI draft in repo) · 🔄 Writing (personally researching/writing) · ✅ Published (personally elaborated, live in Notion)
 
 | Task | Status |
 |---|---|
-| Know what qualifies coffee as specialty and whether SCA scoring is required or if good roasters skip it | ✅ Done |
-| Be able to read a bag label confidently — roast date, origin depth, processing, score, roast profile | ✅ Done |
-| Know why coffee in Malaga is so bitter — torrefacto, mezcla, dark commercial, dirty machines | ✅ Done |
-| Be able to identify mezcla and torrefacto visually and by smell before buying | ✅ Done |
-| Know what non-specialty can work for filter brewing and which brands are accessible in Malaga | ✅ Done |
-| Understand how coffee taste preferences differ by region across Spain, Portugal, France, and Italy | ✅ Done |
+| Know what qualifies coffee as specialty and whether SCA scoring is required or if good roasters skip it | 📄 Draft |
+| Be able to read a bag label confidently — roast date, origin depth, processing, score, roast profile | 📄 Draft |
+| Know why coffee in Malaga is so bitter — torrefacto, mezcla, dark commercial, dirty machines | 📄 Draft |
+| Be able to identify mezcla and torrefacto visually and by smell before buying | 📄 Draft |
+| Know what non-specialty can work for filter brewing and which brands are accessible in Malaga | 📄 Draft |
+| Understand how coffee taste preferences differ by region across Spain, Portugal, France, and Italy | 📄 Draft |
 | Understand the full chain from origin to cup — where quality is built or lost at each stage | ⬜ To do |
 | Understand the cost breakdown — why specialty is priced the way it is, and at what price point claims become implausible | ⬜ To do |
 | Know how to evaluate decaf — what processing methods matter and what to look for | ⬜ To do |
