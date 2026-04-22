@@ -100,7 +100,24 @@ Add a bullet to the `## Roaster-specific references` section in `.claude/skills/
 - [Roaster Name](references/<domain>.md) — <one-line summary of key quirks>
 ```
 
-### 8. Add structured info to the Notion page content
+### 8. Update GAPS.md
+
+Open `GAPS.md` at the project root. Under `## Roasters`, add an entry for the new roaster using this format:
+
+```
+### <Roaster Name>
+<Notion page URL>
+
+- **<Field>** — <why it is unknown or blank>
+```
+
+If all key fields were found, write "All key fields populated." instead of a list.
+
+Key fields to check for gaps: Shop URL, Instagram, Free Delivery From (€), Delivery Organization, Roast Style, Roast Date Provided, Address.
+
+Omit: Rating (expected blank until tried), Beans, Last Synced (auto-managed).
+
+### 9. Add structured info to the Notion page content
 
 Use `mcp__notion__notion-update-page` with `command: replace_content` to add the following fields as a bullet list to the page body:
 
@@ -117,7 +134,7 @@ Use `mcp__notion__notion-update-page` with `command: replace_content` to add the
 
 Leave out any bullet where the data was not found.
 
-### 9. Report
+### 10. Report
 
 - Notion page URL for the new roaster
 - Path to the new reference file
