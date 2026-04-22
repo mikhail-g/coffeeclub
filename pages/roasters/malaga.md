@@ -27,6 +27,7 @@ Known quality, known flaws — to be documented in detail:
 - La Hacienda
 - Kima
 - Bertrani
+- Delicotte
 
 ---
 
