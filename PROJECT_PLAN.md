@@ -61,6 +61,8 @@ This is the measure. Everything in this project either makes that morning better
 | Fill in quality and logistics fields for Artisan, Kima, Bertani, La Hacienda | ✅ Done |
 | Design and implement Recipes DB — structured brew parameters, referenced from Tries as base recipe with per-session adjustments | ✅ Done |
 | Design and implement Cafes DB — track specialty cafes in Málaga with quality signals, location, and what they serve | ⬜ To do |
+| Add "Co-fermented" field to Beans DB — boolean flag; currently buried in descriptions or process names | ⬜ To do |
+| Add packaging/format field to Beans DB — single bag vs. multi-pack vs. tasting set; affects price comparison | ⬜ To do |
 | Research Málaga-area roasters headquartered elsewhere but roasting in Málaga (Syra Coffee, Hola Coffee, Nomad Coffee, others) | ⬜ To do |
 
 ---
@@ -96,6 +98,7 @@ Introduce contrast moments during office brews — two beans, two cups at once, 
 |---|---|
 | Add `/fetch-db` skill — queries Notion with filters rather than fetching all entries; reduces empty-filter calls when looking up a specific roaster or bean | ✅ Done |
 | Document how to set the Location (place) field — required sub-fields (name, address, latitude, longitude), geocoding approach; referenced by `/add-roaster` and future `/add-cafe` | ⬜ To do |
+| Investigate caching Notion DB results locally — reduce redundant fetches, speed up skills like `/fetch-db` and `/update-roaster` | ⬜ To do |
 
 ---
 
