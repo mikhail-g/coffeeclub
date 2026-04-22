@@ -1,3 +1,9 @@
+# Playwright
 .playwright-cli
-.codemie
 .playwright
+
+# Codemie
+.codemie
+
+# Claude
+.claude/settings.local.json
