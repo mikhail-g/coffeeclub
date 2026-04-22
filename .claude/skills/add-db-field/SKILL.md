@@ -12,6 +12,7 @@ Add a new field to a Notion database: $ARGUMENTS
 ```
 
 Examples:
+
 - `/add-db-field Beans | Roast Date | date`
 - `/add-db-field Roasters | Country | text`
 - `/add-db-field Tries | Mood | select | Great:green, Okay:yellow, Bad:red`
@@ -24,6 +25,7 @@ Supported field types: `text`, `number`, `date`, `checkbox`, `url`, `select`, `m
 ### 1. Parse arguments
 
 Split `$ARGUMENTS` on `|` and trim each part:
+
 - `db_name` — database to add the field to
 - `field_name` — name of the new column
 - `field_type` — type of the new column (see supported types above)
@@ -41,14 +43,14 @@ If a property with the same name already exists, stop and inform the user.
 
 ### 4. Build the ADD COLUMN SQL
 
-| Type | SQL fragment |
-|---|---|
-| text | `TEXT` |
-| number | `NUMBER` |
-| date | `DATE` |
-| checkbox | `CHECKBOX` |
-| url | `URL` |
-| select | `SELECT('option1':color, 'option2':color, ...)` |
+| Type         | SQL fragment                                          |
+| ------------ | ----------------------------------------------------- |
+| text         | `TEXT`                                                |
+| number       | `NUMBER`                                              |
+| date         | `DATE`                                                |
+| checkbox     | `CHECKBOX`                                            |
+| url          | `URL`                                                 |
+| select       | `SELECT('option1':color, 'option2':color, ...)`       |
 | multi_select | `MULTI_SELECT('option1':color, 'option2':color, ...)` |
 
 Full statement: `ADD COLUMN "<field_name>" <type_fragment>`
@@ -58,6 +60,7 @@ For options without an explicit color, use `default`.
 ### 5. Apply the change
 
 Call `notion-update-data-source` with:
+
 - `data_source_id`: the DB's data source ID from step 2
 - `operation`: the `ADD COLUMN` SQL from step 4
 

@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "mcp__notion__*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"\nimport sys, json, re\ndata = json.load(sys.stdin)\nresponse = json.dumps(data.get('tool_response', ''))\nif re.search(r'unauthorized|401|token.expired|invalid.token|not.authenticated|authentication.required', response, re.IGNORECASE):\n    print(json.dumps({'systemMessage': 'Notion MCP auth error detected. Your session may have expired — re-authenticate via /mcp.'}))\n\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

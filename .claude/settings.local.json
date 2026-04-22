@@ -1,29 +1,30 @@
 {
-  "permissions": {
-    "allow": [
-      "mcp__notion__notion-search",
-      "mcp__notion__notion-fetch",
-      "mcp__notion__notion-get-users",
-      "mcp__plugin_playwright_playwright__browser_snapshot",
-      "mcp__plugin_playwright_playwright__browser_navigate",
-      "mcp__notion__notion-create-pages",
-      "WebFetch(domain:specialtymountaincoffee.com)",
-      "mcp__notion__notion-update-page",
-      "mcp__plugin_playwright_playwright__browser_close",
-      "WebFetch(domain:artisancoffee.es)",
-      "WebFetch(domain:kimacoffee.com)",
-      "Bash(playwright-cli snapshot:*)",
-      "Bash(playwright-cli close:*)",
-      "Bash(playwright-cli open:*)",
-      "Bash(playwright-cli goto:*)",
-      "mcp__notion__notion-create-database",
-      "Bash(playwright-cli eval:*)",
-      "Bash(playwright-cli click:*)",
-      "mcp__notion__notion-create-view",
-      "mcp__notion__notion-update-data-source"
-    ]
-  },
   "enabledMcpjsonServers": [
     "notion"
-  ]
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(playwright-cli click:*)",
+      "Bash(playwright-cli close:*)",
+      "Bash(playwright-cli eval:*)",
+      "Bash(playwright-cli goto:*)",
+      "Bash(playwright-cli open:*)",
+      "Bash(playwright-cli snapshot:*)",
+      "Bash(playwright-cli:*)",
+      "mcp__notion__notion-create-database",
+      "mcp__notion__notion-create-pages",
+      "mcp__notion__notion-create-view",
+      "mcp__notion__notion-fetch",
+      "mcp__notion__notion-get-users",
+      "mcp__notion__notion-search",
+      "mcp__notion__notion-update-data-source",
+      "mcp__notion__notion-update-page",
+      "Skill(playwright-cli)",
+      "Skill(update-roaster)",
+      "WebFetch(domain:artisancoffee.es)",
+      "WebFetch(domain:brewingdealers.com)",
+      "WebFetch(domain:kimacoffee.com)",
+      "WebFetch(domain:specialtymountaincoffee.com)"
+    ]
+  }
 }
