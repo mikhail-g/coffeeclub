@@ -64,6 +64,8 @@ This is the measure. Everything in this project either makes that morning better
 | Add "Co-fermented" field to Beans DB — boolean flag; currently buried in descriptions or process names | ⬜ To do |
 | Add packaging/format field to Beans DB — single bag vs. multi-pack vs. tasting set; affects price comparison | ⬜ To do |
 | Research Málaga-area roasters headquartered elsewhere but roasting in Málaga (Syra Coffee, Hola Coffee, Nomad Coffee, others) | ⬜ To do |
+| Make Roast Profile in Roasters DB a multi-select — already multi-select in Notion; should hold all profiles offered by the roaster's beans (e.g. Filter + Omni if they carry both) | ⬜ To do |
+| Define a canonical Roast Profile mapping in `specs/beans.md` — standardise the values (Filter / Espresso / Omni) and document how to map bag labels to them: brewer lists (V60, Chemex, AeroPress, Kalita → Filter), Spanish terms (Filtro, Espresso, Omni), mixed labels, etc. Update `/add-bean` to use that mapping | ⬜ To do |
 
 ---
 
@@ -98,7 +100,7 @@ Introduce contrast moments during office brews — two beans, two cups at once, 
 |---|---|
 | Add `/fetch-db` skill — queries Notion with filters rather than fetching all entries; reduces empty-filter calls when looking up a specific roaster or bean | ✅ Done |
 | Document how to set the Location (place) field — required sub-fields (name, address, latitude, longitude), geocoding approach; referenced by `/add-roaster` and future `/add-cafe` | ⬜ To do |
-| Investigate caching Notion DB results locally — reduce redundant fetches, speed up skills like `/fetch-db` and `/update-roaster` | ⬜ To do |
+| Investigate caching Notion DB results locally — reduce redundant fetches, speed up skills like `/fetch-db` and `/update-roaster` | ✅ Done |
 
 ---
 

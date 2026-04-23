@@ -29,6 +29,8 @@ Claude Code skills that keep the databases up to date:
 
 Roaster-specific quirks (label language, size variants, image extraction) are captured in `.claude/skills/add-bean/references/` so each roaster only needs to be figured out once.
 
+Skills cache bean data locally in `.claude/cache/<domain>.json` after each fetch. `/fetch-db` serves roaster-scoped queries from the cache when it's less than 7 days old — skipping all Notion API calls. The cache is refreshed automatically by `/add-bean` (appends the new entry) and `/update-roaster` (overwrites with the full current list).
+
 ## Tracking
 
 - `PROJECT_PLAN.md` — the full vision and task list

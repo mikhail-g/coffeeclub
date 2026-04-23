@@ -48,6 +48,15 @@ For each missing offering (in Notion, not found on site):
 - List names of added entries with their Notion page URLs
 - List names of entries marked Unavailable
 
+### 7. Update the local cache
+
+After all Notion writes complete, overwrite `.claude/cache/<domain>.json` with the full current bean list:
+- Build the complete list from: existing beans (from the Notion relation fetched in step 1) + newly added beans — with final Availability values applied (including any just marked Unavailable)
+- Use the cache format defined in `fetch-db/SKILL.md`
+- Populate the `roaster` section from the reference file (`Notion page URL` line → derive `id` from URL)
+- Set `beans_last_synced` to now; set `cached_at` on each bean record to now
+- The file lives at `.claude/cache/<domain>.json` where `<domain>` matches the reference file name
+
 ## Rules
 
 - Do not re-extract or overwrite data fields (origin, price, etc.) for existing entries — only update Availability when marking a bean Unavailable

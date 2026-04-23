@@ -1,6 +1,6 @@
 ---
 description: Query a Coffee Club Notion database by name or keyword
-allowed-tools: mcp__notion__notion-search, mcp__notion__notion-fetch
+allowed-tools: Bash, mcp__notion__notion-search, mcp__notion__notion-fetch
 ---
 
 Fetch entries from: $ARGUMENTS
@@ -21,10 +21,12 @@ See `specs/notion-databases.md` for all IDs and query patterns.
 If $ARGUMENTS is a Notion URL or page ID → use `notion-fetch` directly.
 
 **If the query involves a known roaster** (e.g. "Mountain Coffee Colombia", "Kima beans"):
-1. `notion-search` the Roasters DB (`collection://d38df7d9-d3b7-4a6b-8db2-dcc0398baad4`) with the roaster name to get the roaster page URL
-2. `notion-fetch` the roaster page → extract all URLs from the `Beans` relation property
-3. `notion-fetch` all those bean pages **in parallel**
-4. Filter client-side by any additional criteria (Country, Process, etc.)
+
+1. **Reference file lookup** — scan `.claude/skills/add-bean/references/` for a file whose heading (`# Roaster Name (domain.com) — field locations`) matches the roaster name. Extract the domain from the parentheses in the heading. Use the `Notion page URL` line from that file directly — skip `notion-search`.
+
+2. **Cache check** — look for `.claude/cache/<domain>.json`. If it exists and `beans_last_synced` is within 7 days of today, return results from the cache. Note "(cached, synced <date>)" in the output. Apply any additional filters (Country, Process, Availability) client-side from the cached records. Stop here.
+
+3. **Cache miss / expired** — fetch from Notion: `notion-fetch` the roaster page (using URL from step 1) → extract all `Beans` relation URLs → `notion-fetch` all bean pages in parallel. Then write or overwrite `.claude/cache/<domain>.json` with the full result (see cache format below) before returning.
 
 This is the only reliable way to get all beans for a roaster — `notion-search` cannot filter by relation field values, and searching by roaster name or UUID in the Beans DB returns incomplete, mixed results.
 
@@ -40,9 +42,50 @@ This is the only reliable way to get all beans for a roaster — `notion-search`
 
 Name, key properties, and Notion page URL for each result.
 
+## Cache format
+
+`.claude/cache/<domain>.json` — one file per roaster:
+
+```json
+{
+  "roaster": {
+    "name": "Roaster Name",
+    "domain": "domain.com",
+    "id": "<notion-page-uuid>",
+    "notion_url": "https://www.notion.so/<id>",
+    "cached_at": "2026-04-23T14:30:00Z"
+  },
+  "beans_last_synced": "2026-04-23T14:30:00Z",
+  "beans": [
+    {
+      "id": "<notion-page-uuid>",
+      "notion_url": "https://www.notion.so/<id>",
+      "name": "Bean Name — Roaster",
+      "country": "...",
+      "region": "...",
+      "variety": "...",
+      "process": "...",
+      "altitude": "...",
+      "sca_score": null,
+      "roast_profile": "...",
+      "cata_notes": "...",
+      "price_250g": 0.0,
+      "price_1kg": 0.0,
+      "availability": "Available",
+      "decaf": false,
+      "url": "https://roastersite.com/...",
+      "cached_at": "2026-04-23T14:30:00Z"
+    }
+  ]
+}
+```
+
+The `id` field is the Notion page UUID (last path segment of `notion_url`, stripped of dashes). Extract it from the page URL returned by `notion-fetch`.
+
 ## Rules
 
 - Never call `notion-search` without `data_source_url` when the target database is known
 - Use `notion-fetch` when you already have the page URL — do not re-search
 - For beans results, always include Availability status
 - Never try to filter by roaster using a UUID or name query in `notion-search` — it does not work (fuzzy text match, not relation field lookup)
+- Always write the cache after a fresh Notion fetch — do not skip it

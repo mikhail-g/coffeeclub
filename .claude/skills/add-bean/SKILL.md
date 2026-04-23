@@ -14,6 +14,10 @@ Add a new entry to the Notion Beans DB from the product page at: $ARGUMENTS
    Only fall back to `notion-search` (Roasters DB, `data_source_url`, `page_size: 5`, `max_highlight_length: 0`) if no reference file exists for this domain or it contains no URL.
 5. Create a new page in the Beans DB — see `specs/notion-databases.md` for the data source ID. Include all extracted fields.
 6. Set `Last Updated` to today's date.
+7. **Update the local cache** — after `notion-create-pages` succeeds, update `.claude/cache/<domain>.json`:
+   - If the file exists: read it, append the new bean record to the `beans` array, update `beans_last_synced` to now, write back.
+   - If the file does not exist: create it using the cache format from `fetch-db/SKILL.md`. Populate the `roaster` section from the reference file (`Notion page URL` line → derive `id` from URL). Add the new bean as the first entry.
+   - The cache file lives at `.claude/cache/<domain>.json` where `<domain>` matches the reference file name (e.g. `specialtymountaincoffee.json`).
 
 ## Fields to extract
 
@@ -56,7 +60,7 @@ If the product page is from a roaster with known quirks, read the corresponding 
 
 ## Rules
 
-- Include Image in the initial `notion-create-pages` call — no separate update step needed. The Files property accepts a plain external URL string.
+- Include Image in the initial `notion-create-pages` call — no separate update step needed. The Files property accepts a plain external HTTPS URL string. Do not pass a local file path — Notion will reject it. If only a local file is available, leave Image blank and note it for manual upload.
 - Leave any field blank if not found on the page. Do not guess or infer origin from the coffee name.
 - Roaster relation value: use the full Notion page URL of the matched roaster entry (e.g. `https://www.notion.so/342f2b14316c812ebde7dd61f69f6900`).
 - The `URL` field requires the property key `userDefined:URL` in create/update calls — not `URL`.
