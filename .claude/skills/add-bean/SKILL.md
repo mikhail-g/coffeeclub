@@ -1,6 +1,6 @@
 ---
 description: Add a new coffee offering to the Beans DB from a product page URL
-allowed-tools: Bash, mcp__notion__notion-search, mcp__notion__notion-create-pages, mcp__notion__notion-update-page, mcp__notion__notion-fetch
+allowed-tools: Bash, mcp__notion__notion-search, mcp__notion__notion-create-pages
 ---
 
 Add a new entry to the Notion Beans DB from the product page at: $ARGUMENTS
@@ -10,7 +10,8 @@ Add a new entry to the Notion Beans DB from the product page at: $ARGUMENTS
 1. Open the URL with Playwright in headed mode: `playwright-cli open --headed $ARGUMENTS`
 2. Take a snapshot. Extract every field available from the main product view.
 3. If an "Información adicional" tab exists, click it and check for extra data (usually just weight/grind options — no new bean data).
-4. Search the Roasters DB for the roaster by name or domain — see `specs/notion-databases.md` for the data source ID. Use `notion-search` with `data_source_url`, `page_size: 5`, `max_highlight_length: 0`. Record its Notion page URL.
+4. Look up the roaster's Notion page URL from the reference file for this domain (`.claude/skills/add-bean/references/<domain>.md`) — read the `Notion page URL` line. Use it directly without calling `notion-search`.
+   Only fall back to `notion-search` (Roasters DB, `data_source_url`, `page_size: 5`, `max_highlight_length: 0`) if no reference file exists for this domain or it contains no URL.
 5. Create a new page in the Beans DB — see `specs/notion-databases.md` for the data source ID. Include all extracted fields.
 6. Set `Last Updated` to today's date.
 
@@ -51,6 +52,7 @@ If the product page is from a roaster with known quirks, read the corresponding 
 - [Delicotte](references/delicotte.md) — Spanish labels, WooCommerce (data-product_variations for prices/images), 200g/500g sizes (not 250g/1kg), "Perfil en taza" for cata notes, "Puntaje:" for SCA
 - [Santa Coffee](references/santacoffee.md) — English labels, WooCommerce (data-product_variations for prices/images), 250g/1kg standard sizes, "TASTING NOTES:" for cata notes, "SCA:" for score (strip " points")
 - [La Hacienda](references/lahacienda.es.md) — Spanish labels, WooCommerce (WordPress); country in title, sizes 250/500/1kg, images from wp-content uploads
+- [Mountain Coffee](references/specialtymountaincoffee.md) — Spanish labels, WooCommerce; ORIGEN contains country+region on one line, no SCA score, always Omni
 
 ## Rules
 

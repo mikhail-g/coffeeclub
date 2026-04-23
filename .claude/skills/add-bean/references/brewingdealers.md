@@ -1,5 +1,7 @@
 # Brewing Dealers (brewingdealers.com) — field locations
 
+Notion page URL: https://www.notion.so/349f2b14316c81848dcfc77dff12e4fe
+
 Labels are in English in the product description area:
 
 | Field | Label on page |

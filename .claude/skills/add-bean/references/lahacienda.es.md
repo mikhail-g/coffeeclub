@@ -1,5 +1,7 @@
 # La Hacienda (lahacienda.es) — field locations
 
+Notion page URL: https://www.notion.so/344f2b14316c81bd81bad3713a3e735c
+
 Spanish labels; WooCommerce (WordPress). Product pages use uppercase label prefixes like "REGIÓN:", "VARIEDAD:", etc. Country is often the product heading (e.g., "Brasil"). Images are served from wp-content uploads.
 
 La Hacienda packages commonly: 250g, 500g, 1.000g.

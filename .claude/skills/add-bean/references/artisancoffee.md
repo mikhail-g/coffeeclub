@@ -1,5 +1,7 @@
 # Artisan Coffee (artisancoffee.es) — field locations
 
+Notion page URL: https://www.notion.so/344f2b14316c819983d3cc455bcf983e
+
 Labels are in English inside the description body, not as dedicated page labels:
 
 | Field | Label in description |

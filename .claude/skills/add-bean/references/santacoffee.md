@@ -1,5 +1,7 @@
 # Santa Coffee (santacoffee.es) — field locations
 
+Notion page URL: https://www.notion.so/34af2b14316c8166868ce9aa0b1ffc5d
+
 English labels. WooCommerce site — use `data-product_variations` attribute for prices/images.
 
 | Field | Label on page |

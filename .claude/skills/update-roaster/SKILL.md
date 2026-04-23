@@ -9,9 +9,9 @@ Sync coffee offerings for the roaster: $ARGUMENTS
 
 ### 1. Fetch roaster from Notion
 
-- Search the Roasters DB for "$ARGUMENTS" — see `specs/notion-databases.md` for the data source ID. Use `notion-search` with `data_source_url`, `page_size: 3`, `max_highlight_length: 0`
-- Record: **Shop URL**, roaster's Notion page URL (needed for the Roaster relation on each bean)
-- Fetch the roaster page to get its **Beans** relation — collect the **name and Notion page URL** of all beans already in Notion
+- Check `.claude/skills/add-bean/references/` for a file matching this roaster's domain. If found, read the `Notion page URL` line — use it directly with `notion-fetch`. This is faster and deterministic.
+- Only fall back to `notion-search` (Roasters DB, `data_source_url`, `page_size: 3`, `max_highlight_length: 0`) if no reference file match exists.
+- `notion-fetch` the roaster page to get: **Shop URL**, roaster's Notion page URL (needed for the Roaster relation on each bean), and the **Beans** relation — collect the **name and Notion page URL** of all beans already in Notion
 
 ### 2. Get current offerings from the roaster site
 
@@ -33,8 +33,9 @@ For each new offering:
 - Extract all fields following the add-bean skill field extraction table (see `.claude/skills/add-bean/SKILL.md`)
 - Set Roaster relation to the roaster's Notion page URL
 - Set Availability to 'Available'
-- Create the entry in the Beans DB — see `specs/notion-databases.md` for the data source ID
 - Set Last Updated to today's date
+
+Once all new offerings are extracted, create them all in a **single batched `notion-create-pages` call** — pass all new pages as an array. Do not call `notion-create-pages` once per bean.
 
 ### 5. Mark missing offerings as Unavailable
 

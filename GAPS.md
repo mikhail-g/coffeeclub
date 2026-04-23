@@ -50,13 +50,18 @@ https://www.notion.so/349f2b14316c81848dcfc77dff12e4fe
 ### La Hacienda
 https://www.notion.so/344f2b14316c81bd81bad3713a3e735c
 
-- **Shop URL** — https://lahacienda.es/categoria-producto/tienda/grano/
 - **Instagram** — not found on site
-- **Free Delivery From (€)** — €75 (free delivery for purchases > €75 in Málaga capital, province, peninsula and islands)
 - **Delivery Organization** — agency (not named)
-- **Price range** — ~€11.30–15.30 per 250g (examples on site)
-- **Addresses** — Calle Esperanto 5; Calle Fernando Camino 6
-- **Page content** — Updated (structured summary added to Notion page content)
+
+#### Beans (all 8 entries)
+- **Images** — not set; site images exist but couldn't be added via MCP (requires Playwright). Brasil has a real image URL; all others had placeholder filenames.
+- **Price 1kg** — not known for any bean (size selection on site required to read 1kg price)
+
+#### Per-bean gaps
+- **Colombia** — no cata notes; no SCA score
+- **India** — no cata notes; no SCA score
+- **México Descafeinado** — no cata notes; no SCA score; no altitude; decaf method unknown
+- **Perú** — no cata notes; no SCA score
 
 ---
 

@@ -1,5 +1,7 @@
 # Bertani Café (bertanicafe.com) — field locations
 
+Notion page URL: https://www.notion.so/344f2b14316c819a8f3fc1a1d252c9ab
+
 Simple website builder (not Shopify — no JSON API). Labels are in Spanish as `<strong>` tags inside the product description block. **Label names are inconsistent across products** — check all variants below.
 
 | Field | Possible labels |

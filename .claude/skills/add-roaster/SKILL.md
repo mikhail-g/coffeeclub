@@ -7,6 +7,10 @@ Add a new roaster from the homepage at: $ARGUMENTS
 
 ## Process
 
+### 0. Check if roaster already exists
+
+Search the Roasters DB for the roaster name — use `notion-search` with `data_source_url`, `page_size: 3`, `max_highlight_length: 0` (see `specs/notion-databases.md` for the data source ID). If a match is found, stop and update the existing entry instead of creating a new one.
+
 ### 1. Open homepage with Playwright
 
 `playwright-cli open --headed $ARGUMENTS`
@@ -55,9 +59,24 @@ Use `mcp__notion__notion-create-pages` — see `specs/notion-databases.md` for t
 
 Set all fields found: Name, Site, Shop URL, Instagram, Free Delivery From (€), Delivery Organization, Buy In Person, Address, Notes (quirks).
 
+Also pass the bullet-list page body directly in the `content` field of the same `notion-create-pages` call:
+
+```
+- **Location:** <city> (<physical store / online only>)
+- **Website / Instagram:** [<domain>](<site url>) / [@<handle>](<instagram url>)
+- **Buy in person:** yes / no
+- **Ships:** yes (<free from €X via Carrier>) / no / unknown
+- **Price range:** ~€X/250g
+- **Roast style:** Filter / Espresso / Omni
+- **Transparency level:** <SCA score per product / farm named / country only>
+- **Available at:** [<shop url label>](<shop url>)
+```
+
+Leave out any bullet where the data was not found. This eliminates the need for a separate `notion-update-page` call.
+
 ### 6. Create add-bean reference file
 
-Write `.claude/skills/add-bean/references/<domain>.md` using this format:
+Write `.claude/skills/add-bean/references/<domain>.md` using this format. **Include the Notion page URL returned by step 5 as the first line after the heading** — this allows future `add-bean` and `update-roaster` calls to skip `notion-search` entirely.
 
 ```
 # Roaster Name (domain.com) — field locations
@@ -117,24 +136,7 @@ Key fields to check for gaps: Shop URL, Instagram, Free Delivery From (€), Del
 
 Omit: Rating (expected blank until tried), Beans, Last Synced (auto-managed).
 
-### 9. Add structured info to the Notion page content
-
-Use `mcp__notion__notion-update-page` with `command: replace_content` to add the following fields as a bullet list to the page body:
-
-```
-- **Location:** <city> (<physical store / online only>)
-- **Website / Instagram:** [<domain>](<site url>) / [@<handle>](<instagram url>)
-- **Buy in person:** yes / no
-- **Ships:** yes (<free from €X via Carrier>) / no / unknown
-- **Price range:** ~€X/250g
-- **Roast style:** Filter / Espresso / Omni
-- **Transparency level:** <SCA score per product / farm named / country only>
-- **Available at:** [<shop url label>](<shop url>)
-```
-
-Leave out any bullet where the data was not found.
-
-### 10. Report
+### 9. Report
 
 - Notion page URL for the new roaster
 - Path to the new reference file
@@ -145,4 +147,4 @@ Leave out any bullet where the data was not found.
 - If no shop/products URL is found, leave Shop URL blank and note it in the report
 - If geographic scope cannot be determined from the site, ask the user before step 8
 - If a reference file already exists for this domain, update it rather than overwriting
-- Do not create a Notion entry if the roaster already exists in the Roasters DB — update instead. Check with `notion-search` scoped to the Roasters DB (`data_source_url`, `page_size: 3`, `max_highlight_length: 0`) — see `specs/notion-databases.md` for the data source ID
+- Do not create a Notion entry if the roaster already exists — step 0 handles this check

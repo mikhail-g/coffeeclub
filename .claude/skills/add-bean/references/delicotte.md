@@ -1,5 +1,7 @@
 # Delicotte (delicotte.eu) — field locations
 
+Notion page URL: https://www.notion.so/34af2b14316c81358962d2269ba3389c
+
 Spanish labels. WooCommerce site — use `data-product_variations` attribute for prices/images (not Shopify JSON API).
 
 | Field | Label on page |

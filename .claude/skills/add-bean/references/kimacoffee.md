@@ -1,5 +1,7 @@
 # Kima Coffee (kimacoffee.com) — field locations
 
+Notion page URL: https://www.notion.so/344f2b14316c81cd96a4e4aa44a72d59
+
 Labels are in Spanish in the product description area, not under standard "ORIGEN:" / "FINCA:" headings:
 
 | Field | Label on page |
