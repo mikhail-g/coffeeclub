@@ -50,6 +50,7 @@ If the product page is from a roaster with known quirks, read the corresponding 
 - [Brewing Dealers](references/brewingdealers.md) — English labels, Shopify API for prices/images, Country embedded in Region string, skip X2/X3/X4 bundle packs
 - [Delicotte](references/delicotte.md) — Spanish labels, WooCommerce (data-product_variations for prices/images), 200g/500g sizes (not 250g/1kg), "Perfil en taza" for cata notes, "Puntaje:" for SCA
 - [Santa Coffee](references/santacoffee.md) — English labels, WooCommerce (data-product_variations for prices/images), 250g/1kg standard sizes, "TASTING NOTES:" for cata notes, "SCA:" for score (strip " points")
+- [La Hacienda](references/lahacienda.es.md) — Spanish labels, WooCommerce (WordPress); country in title, sizes 250/500/1kg, images from wp-content uploads
 
 ## Rules
 

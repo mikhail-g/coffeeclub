@@ -50,14 +50,13 @@ https://www.notion.so/349f2b14316c81848dcfc77dff12e4fe
 ### La Hacienda
 https://www.notion.so/344f2b14316c81bd81bad3713a3e735c
 
-Site inaccessible via automation (DNS/bot protection) — all items below to be filled manually after visiting in person or checking with a local source.
-
-- **Instagram** — unknown
-- **Shop URL** — unknown
-- **Free Delivery From (€)** — unknown
-- **Delivery Organization** — unknown
-- **Price range** — unknown
-- **Page content** — Notion page body is blank (other roasters have a structured bullet summary)
+- **Shop URL** — https://lahacienda.es/categoria-producto/tienda/grano/
+- **Instagram** — not found on site
+- **Free Delivery From (€)** — €75 (free delivery for purchases > €75 in Málaga capital, province, peninsula and islands)
+- **Delivery Organization** — agency (not named)
+- **Price range** — ~€11.30–15.30 per 250g (examples on site)
+- **Addresses** — Calle Esperanto 5; Calle Fernando Camino 6
+- **Page content** — Updated (structured summary added to Notion page content)
 
 ---
 
