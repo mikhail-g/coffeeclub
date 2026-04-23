@@ -57,6 +57,7 @@ Implementation only starts after the spec is reviewed and agreed. If reality div
 - Files link to related files using relative paths
 - `STATUS_BOARD.md` should be updated when files are added or their status changes
 - `GAPS.md` should be updated when missing fields are filled in or new roasters are added
+- `LESSONS_LEARNED.md` should be updated when something non-obvious is discovered during work — unexpected API behaviour, a pattern that proved reliable or brittle, a mistake worth avoiding next time. Suggest adding an entry whenever such a moment comes up in a session.
 
 ## Content scope
 
