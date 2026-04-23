@@ -1,6 +1,8 @@
 # Playwright
-.playwright-cli
 .playwright
+.playwright-cli
+.playwright-mcp
+
 
 # Codemie
 .codemie
