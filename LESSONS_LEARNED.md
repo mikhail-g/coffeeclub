@@ -16,6 +16,10 @@ Notes for a presentation on what actually works (and what doesn't) when building
 
 - **Relation fields are invisible to `notion-search`.** Searching the Beans DB for "Mountain Coffee" returns zero Mountain Coffee beans — because "Mountain Coffee" only exists in each bean's Roaster relation field, which points to the roaster page but is not indexed as text. Instead it returned a bean called "Descafeinado Mountain Water" (the word "mountain" appeared in the title for unrelated reasons) and other fuzzy noise. To get all beans for a roaster, you must: fetch the roaster's own Notion page and follow the `Beans` relation links. There is no shortcut through search.
 
+## MCP and tool availability
+
+- **When an MCP tool suddenly returns "No such tool available", the first suspect is an expired auth session — not a code or prompt issue.** Mid-session, all Notion MCP tools stopped responding. The natural reaction was to look for something wrong in the skill instructions or the tool call format. It wasn't — the Notion MCP had simply lost its authentication session. Running `/mcp` to reconnect restored everything instantly. Time spent debugging the wrong thing. The lesson: if a tool that was working stops being available without any code change, check the connection and auth state first. A hook can be configured to detect this automatically and alert immediately instead of letting Claude spiral into prompt debugging.
+
 ## What surprised me
 
 ## What I'd do differently
