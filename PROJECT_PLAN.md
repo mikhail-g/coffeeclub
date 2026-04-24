@@ -65,10 +65,10 @@ This is the measure. Everything in this project either makes that morning better
 | 1.13 | Add "Co-fermented" field to Beans DB — boolean flag; currently buried in descriptions or process names | ⬜ To do |
 | 1.14 | Add packaging/format field to Beans DB — single bag vs. multi-pack vs. tasting set; affects price comparison | ⬜ To do |
 | 1.15 | Research Málaga-area roasters headquartered elsewhere but roasting in Málaga (Syra Coffee, Hola Coffee, Nomad Coffee, others) | ⬜ To do |
-| 1.16 | Make Roast Profile in Roasters DB a multi-select — already multi-select in Notion; should hold all profiles offered by the roaster's beans (e.g. Filter + Omni if they carry both) | ⬜ To do |
+| 1.16 | Make Roast Profile in Roasters DB a multi-select — already multi-select in Notion; should hold all profiles offered by the roaster's beans (e.g. Filter + Omni if they carry both) | ✅ Done |
 | 1.17 | Move Bertani Café from Roasters DB to Cafes DB — it is a cafe, not a roaster; the actual roaster behind its beans is "Café de Finca" | ⬜ To do |
 | 1.18 | Add "Café de Finca" as a roaster entry and re-map all Bertani beans to it in the Roaster relation field | ⬜ To do |
-| 1.19 | Define a canonical Roast Profile mapping in `specs/beans.md` — standardise the values (Filter / Espresso / Omni) and document how to map bag labels to them: brewer lists (V60, Chemex, AeroPress, Kalita → Filter), Spanish terms (Filtro, Espresso, Omni), mixed labels, etc. Update `/add-bean` to use that mapping | ⬜ To do |
+| 1.19 | Define a canonical Roast Profile mapping in `specs/beans.md` — standardise the values (Filter / Espresso / Omni) and document how to map bag labels to them: brewer lists (V60, Chemex, AeroPress, Kalita → Filter), Spanish terms (Filtro, Espresso, Omni), mixed labels, etc. Update `/add-bean` to use that mapping | ✅ Done |
 
 ---
 

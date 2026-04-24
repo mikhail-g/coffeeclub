@@ -12,7 +12,16 @@ Add a new entry to the Notion Beans DB from the product page at: $ARGUMENTS
 3. If an "Información adicional" tab exists, click it and check for extra data (usually just weight/grind options — no new bean data).
 4. Look up the roaster's Notion page URL from the reference file for this domain (`.claude/skills/add-bean/references/<domain>.md`) — read the `Notion page URL` line. Use it directly without calling `notion-search`.
    Only fall back to `notion-search` (Roasters DB, `data_source_url`, `page_size: 5`, `max_highlight_length: 0`) if no reference file exists for this domain or it contains no URL.
-5. Create a new page in the Beans DB — see `specs/notion-databases.md` for the data source ID. Include all extracted fields.
+5. Create a new page in the Beans DB — see `specs/notion-databases.md` for the data source ID. Include all extracted fields plus the `content` field (see step 5a).
+
+   **5a. Page content — Info from web**
+   Pass the `content` field in the `notion-create-pages` call with an `## Info from web` section. Only include lines for fields that required interpretation or mapping (not fields taken verbatim). See `specs/beans.md` for format. Minimum: always include the raw roast profile label as it appeared on the page.
+
+   ```
+   ## Info from web
+   - **Roast profile (as listed):** "<exact label from page>" → mapped to <canonical value>
+   ```
+
 6. Set `Last Updated` to today's date.
 7. **Update the local cache** — after `notion-create-pages` succeeds, update `.claude/cache/<domain>.json`:
    - If the file exists: read it, append the new bean record to the `beans` array, update `beans_last_synced` to now, write back.
@@ -34,7 +43,7 @@ Add a new entry to the Notion Beans DB from the product page at: $ARGUMENTS
 | Process | "PROCESO:" label → map to: Washed / Natural / Honey / Anaerobic / Other |
 | Cata Notes | "NOTAS:" label (short tasting descriptor line) |
 | SCA Score | Score if listed, else leave blank |
-| Roast Profile | Infer from grind options: filter+espresso options present = Omni, filter only = Filter, espresso only = Espresso |
+| Roast Profile | Follow the canonical mapping in `specs/beans.md`. Infer from grind variants if no explicit label. Leave blank if neither is available. |
 | Decaf | `__YES__` if "descafeinado" appears in name or labels, else `__NO__` |
 | Price 250g online (€) | Price for 250g option |
 | Price 1kg online (€) | Price for 1000g option |

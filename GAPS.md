@@ -41,7 +41,7 @@ https://www.notion.so/344f2b14316c819a8f3fc1a1d252c9ab
 ### Brewing Dealers
 https://www.notion.so/349f2b14316c81848dcfc77dff12e4fe
 
-- **Roast Style** — not specified on site
+- **Roast Style** — set to Filter (most common across beans); also has Espresso (AMKA) and Omni (Berraco, Guaro, Tapa Dulce) — add those two values manually in Notion (MCP cannot set multiple multi-select values in one call)
 - **Delivery Organization** — carrier not named (site says 1–2 days but no carrier mentioned)
 - **Price range** — not determinable from site (prices vary widely by product)
 

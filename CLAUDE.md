@@ -66,6 +66,10 @@ Implementation only starts after the spec is reviewed and agreed. If reality div
 - Consumer-facing tone — not industry-insider language
 - Conceptual depth with practical output (the reader should be able to act on it)
 
+## Known issues
+
+- **WebSearch unavailable** — WebSearch calls fail with a `400 BedrockException` when routed through litellm to AWS Bedrock. Root cause: the tool's input schema passes `type` as a plain string (`"string"`) but Bedrock requires an array (`["string"]`). No fallback model is configured. Until fixed on the proxy side, use Playwright (`playwright-cli`) or WebFetch with a known URL instead of WebSearch for research tasks.
+
 ## Owner context
 
 The owner is a deep coffee enthusiast living in Malaga, using AeroPress and Clever Dripper with a manual grinder and scale. Trusted local roasters (with known flaws): Mountain Coffee, Artisan, La Hacienda, Kima, Bertani, Delicotte, Santa Coffee.
