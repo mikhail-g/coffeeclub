@@ -32,14 +32,15 @@ This is the measure. Everything in this project either makes that morning better
 
 ---
 
-## Tasks
+## Todo
 
-| Goal | Status |
+| Section | Status |
 |---|---|
 | Data & Infrastructure | 🔄 In progress |
 | Club | 🔄 In progress |
+| Initiatives | ⬜ Not started |
+| Skills & Tooling | ✅ Done |
 | Sourcing | 🔄 In progress |
-| Skills & Tooling | 🔄 In progress |
 | Brewing | ⬜ Not started |
 | Going Deeper | 🔄 In progress |
 
@@ -47,38 +48,38 @@ This is the measure. Everything in this project either makes that morning better
 
 ### Data & Infrastructure
 
-| Task | Status |
-|---|---|
-| Set up Roasters DB, Beans DB, and Tries DB in Notion | ✅ Done |
-| Publish Coffee Club landing page with inline views of all three databases | ✅ Done |
-| Build `/add-bean` and `/update-roaster` skills for syncing offerings | ✅ Done |
-| Sync Mountain Coffee offerings (10 beans) | ✅ Done |
-| Sync Artisan Coffee offerings via `/update-roaster` | ✅ Done |
-| Sync Kima Coffee offerings via `/update-roaster` | ✅ Done |
-| Sync Bertani Café offerings via `/update-roaster` | ✅ Done |
-| Sync Brewing Dealers offerings via `/update-roaster` | ✅ Done |
-| Add La Hacienda offerings manually (site blocked by bot protection) | ✅ Done |
-| Fill in quality and logistics fields for Artisan, Kima, Bertani, La Hacienda | ✅ Done |
-| Design and implement Recipes DB — structured brew parameters, referenced from Tries as base recipe with per-session adjustments | ✅ Done |
-| Design and implement Cafes DB — track specialty cafes in Málaga with quality signals, location, and what they serve | ⬜ To do |
-| Add "Co-fermented" field to Beans DB — boolean flag; currently buried in descriptions or process names | ⬜ To do |
-| Add packaging/format field to Beans DB — single bag vs. multi-pack vs. tasting set; affects price comparison | ⬜ To do |
-| Research Málaga-area roasters headquartered elsewhere but roasting in Málaga (Syra Coffee, Hola Coffee, Nomad Coffee, others) | ⬜ To do |
-| Make Roast Profile in Roasters DB a multi-select — already multi-select in Notion; should hold all profiles offered by the roaster's beans (e.g. Filter + Omni if they carry both) | ⬜ To do |
-| Move Bertani Café from Roasters DB to Cafes DB — it is a cafe, not a roaster; the actual roaster behind its beans is "Café de Finca" | ⬜ To do |
-| Add "Café de Finca" as a roaster entry and re-map all Bertani beans to it in the Roaster relation field | ⬜ To do |
-| Define a canonical Roast Profile mapping in `specs/beans.md` — standardise the values (Filter / Espresso / Omni) and document how to map bag labels to them: brewer lists (V60, Chemex, AeroPress, Kalita → Filter), Spanish terms (Filtro, Espresso, Omni), mixed labels, etc. Update `/add-bean` to use that mapping | ⬜ To do |
+| ID | Task | Status |
+|---|---|---|
+| 1.1 | Set up Roasters DB, Beans DB, and Tries DB in Notion | ✅ Done |
+| 1.2 | Publish Coffee Club landing page with inline views of all three databases | ✅ Done |
+| 1.3 | Build `/add-bean` and `/update-roaster` skills for syncing offerings | ✅ Done |
+| 1.4 | Sync Mountain Coffee offerings (10 beans) | ✅ Done |
+| 1.5 | Sync Artisan Coffee offerings via `/update-roaster` | ✅ Done |
+| 1.6 | Sync Kima Coffee offerings via `/update-roaster` | ✅ Done |
+| 1.7 | Sync Bertani Café offerings via `/update-roaster` | ✅ Done |
+| 1.8 | Sync Brewing Dealers offerings via `/update-roaster` | ✅ Done |
+| 1.9 | Add La Hacienda offerings manually (site blocked by bot protection) | ✅ Done |
+| 1.10 | Fill in quality and logistics fields for Artisan, Kima, Bertani, La Hacienda | ✅ Done |
+| 1.11 | Design and implement Recipes DB — structured brew parameters, referenced from Tries as base recipe with per-session adjustments | ✅ Done |
+| 1.12 | Design and implement Cafes DB — track specialty cafes in Málaga with quality signals, location, and what they serve | ⬜ To do |
+| 1.13 | Add "Co-fermented" field to Beans DB — boolean flag; currently buried in descriptions or process names | ⬜ To do |
+| 1.14 | Add packaging/format field to Beans DB — single bag vs. multi-pack vs. tasting set; affects price comparison | ⬜ To do |
+| 1.15 | Research Málaga-area roasters headquartered elsewhere but roasting in Málaga (Syra Coffee, Hola Coffee, Nomad Coffee, others) | ⬜ To do |
+| 1.16 | Make Roast Profile in Roasters DB a multi-select — already multi-select in Notion; should hold all profiles offered by the roaster's beans (e.g. Filter + Omni if they carry both) | ⬜ To do |
+| 1.17 | Move Bertani Café from Roasters DB to Cafes DB — it is a cafe, not a roaster; the actual roaster behind its beans is "Café de Finca" | ⬜ To do |
+| 1.18 | Add "Café de Finca" as a roaster entry and re-map all Bertani beans to it in the Roaster relation field | ⬜ To do |
+| 1.19 | Define a canonical Roast Profile mapping in `specs/beans.md` — standardise the values (Filter / Espresso / Omni) and document how to map bag labels to them: brewer lists (V60, Chemex, AeroPress, Kalita → Filter), Spanish terms (Filtro, Espresso, Omni), mixed labels, etc. Update `/add-bean` to use that mapping | ⬜ To do |
 
 ---
 
 ### Club
 
-| Task | Status |
-|---|---|
-| Publish Coffee Club landing page and share with members | ✅ Done |
-| Set up tasting log — Tries DB with enough structure to capture impressions without friction | ✅ Done |
-| Create an easy way to log brew sessions — record the bean, recipe used, and any adjustments | ⬜ To do |
-| Build a tasting rating format — a lightweight way to score the brew and describe the taste in the session | ⬜ To do |
+| ID | Task | Status |
+|---|---|---|
+| 2.1 | Publish Coffee Club landing page and share with members | ✅ Done |
+| 2.2 | Set up tasting log — Tries DB with enough structure to capture impressions without friction | ✅ Done |
+| 2.3 | Create an easy way to log brew sessions — record the bean, recipe used, and any adjustments | ⬜ To do |
+| 2.4 | Build a tasting rating format — a lightweight way to score the brew and describe the taste in the session | ⬜ To do |
 
 ---
 
@@ -87,46 +88,46 @@ This is the measure. Everything in this project either makes that morning better
 #### Side-by-side comparison
 Introduce contrast moments during office brews — two beans, two cups at once, let the cup do the talking.
 
-| Sub-task | Status |
-|---|---|
-| Formulate the idea clearly | ⬜ To do |
-| Present to the club and see if it lands | ⬜ To do |
-| Get the equipment (wide shallow glasses — rocks glasses or small bistro glasses) | ⬜ To do |
-| Set up the practice | ⬜ To do |
+| ID | Sub-task | Status |
+|---|---|---|
+| 3.1 | Formulate the idea clearly | ⬜ To do |
+| 3.2 | Present to the club and see if it lands | ⬜ To do |
+| 3.3 | Get the equipment (wide shallow glasses — rocks glasses or small bistro glasses) | ⬜ To do |
+| 3.4 | Set up the practice | ⬜ To do |
 
 ---
 
 ### Skills & Tooling
 
-| Task | Status |
-|---|---|
-| Add `/fetch-db` skill — queries Notion with filters rather than fetching all entries; reduces empty-filter calls when looking up a specific roaster or bean | ✅ Done |
-| Document how to set the Location (place) field — required sub-fields (name, address, latitude, longitude), geocoding approach; referenced by `/add-roaster` and future `/add-cafe` | ⬜ To do |
-| Investigate caching Notion DB results locally — reduce redundant fetches, speed up skills like `/fetch-db` and `/update-roaster` | ✅ Done |
+| ID | Task | Status |
+|---|---|---|
+| 4.1 | Add `/fetch-db` skill — queries Notion with filters rather than fetching all entries; reduces empty-filter calls when looking up a specific roaster or bean | ✅ Done |
+| 4.2 | Document how to set the Location (place) field — required sub-fields (name, address, latitude, longitude), geocoding approach; referenced by `/add-roaster` and future `/add-cafe` | ✅ Done |
+| 4.3 | Investigate caching Notion DB results locally — reduce redundant fetches, speed up skills like `/fetch-db` and `/update-roaster` | ✅ Done |
 
 ---
 
 ### Sourcing
 
-| Task | Status |
-|---|---|
-| Have an honest, documented picture of each Malaga roaster — quality, offerings, how to buy | 🔄 In progress |
-| Have a confirmed decaf source — tried and logged, not just tracked | ⬜ To do |
-| Know the freshness window — when coffee is too fresh (under-rested) and when it has expired | ⬜ To do |
-| Know what to do when a roast date is recent but beans have no smell | ⬜ To do |
-| Know which Spanish and Canarian roasters are worth ordering from and ship reliably to Malaga | ⬜ To do |
-| Know which Malaga cafes genuinely understand what they serve | ⬜ To do |
+| ID | Task | Status |
+|---|---|---|
+| 5.1 | Have an honest, documented picture of each Malaga roaster — quality, offerings, how to buy | 🔄 In progress |
+| 5.2 | Have a confirmed decaf source — tried and logged, not just tracked | ⬜ To do |
+| 5.3 | Know the freshness window — when coffee is too fresh (under-rested) and when it has expired | ⬜ To do |
+| 5.4 | Know what to do when a roast date is recent but beans have no smell | ⬜ To do |
+| 5.5 | Know which Spanish and Canarian roasters are worth ordering from and ship reliably to Malaga | ⬜ To do |
+| 5.6 | Know which Malaga cafes genuinely understand what they serve | ⬜ To do |
 
 ---
 
 ### Brewing
 
-| Task | Status |
-|---|---|
-| Have reliable, tested AeroPress recipes for light/filter roasts — bringing out the best of specialty | ⬜ To do |
-| Have reliable, tested AeroPress recipes for medium-dark non-specialty roasts — making the most of what's already in the office | ⬜ To do |
-| Understand omni roast vs light/filter roast — which works better on AeroPress and why | ⬜ To do |
-| Know what water to use in Malaga, why tap water is unsuitable, and which bottled or filtered option works best | ⬜ To do |
+| ID | Task | Status |
+|---|---|---|
+| 6.1 | Have reliable, tested AeroPress recipes for light/filter roasts — bringing out the best of specialty | ⬜ To do |
+| 6.2 | Have reliable, tested AeroPress recipes for medium-dark non-specialty roasts — making the most of what's already in the office | ⬜ To do |
+| 6.3 | Understand omni roast vs light/filter roast — which works better on AeroPress and why | ⬜ To do |
+| 6.4 | Know what water to use in Malaga, why tap water is unsuitable, and which bottled or filtered option works best | ⬜ To do |
 
 ---
 
@@ -134,20 +135,20 @@ Introduce contrast moments during office brews — two beans, two cups at once, 
 
 Statuses: ⬜ To do · 📄 Draft (AI draft in repo) · 🔄 Writing (personally researching/writing) · ✅ Published (personally elaborated, live in Notion)
 
-| Task | Status |
-|---|---|
-| Know what qualifies coffee as specialty and whether SCA scoring is required or if good roasters skip it | 📄 Draft |
-| Be able to read a bag label confidently — roast date, origin depth, processing, score, roast profile | 📄 Draft |
-| Know why coffee in Malaga is so bitter — torrefacto, mezcla, dark commercial, dirty machines | 📄 Draft |
-| Be able to identify mezcla and torrefacto visually and by smell before buying | 📄 Draft |
-| Know what non-specialty can work for filter brewing and which brands are accessible in Malaga | 📄 Draft |
-| Understand how coffee taste preferences differ by region across Spain, Portugal, France, and Italy | 📄 Draft |
-| Understand the full chain from origin to cup — where quality is built or lost at each stage | ⬜ To do |
-| Understand the cost breakdown — why specialty is priced the way it is, and at what price point claims become implausible | ⬜ To do |
-| Know how to evaluate decaf — what processing methods matter and what to look for | ⬜ To do |
-| Understand what SCA and ECBC are and why they matter as references | ⬜ To do |
-| Know what cuppings, workshops, and courses exist in Malaga and Spain | ⬜ To do |
-| Understand direct trade — whether farms are contactable and what that relationship looks like | ⬜ To do |
+| ID | Task | Status |
+|---|---|---|
+| 7.1 | Know what qualifies coffee as specialty and whether SCA scoring is required or if good roasters skip it | 📄 Draft |
+| 7.2 | Be able to read a bag label confidently — roast date, origin depth, processing, score, roast profile | 📄 Draft |
+| 7.3 | Know why coffee in Malaga is so bitter — torrefacto, mezcla, dark commercial, dirty machines | 📄 Draft |
+| 7.4 | Be able to identify mezcla and torrefacto visually and by smell before buying | 📄 Draft |
+| 7.5 | Know what non-specialty can work for filter brewing and which brands are accessible in Malaga | 📄 Draft |
+| 7.6 | Understand how coffee taste preferences differ by region across Spain, Portugal, France, and Italy | 📄 Draft |
+| 7.7 | Understand the full chain from origin to cup — where quality is built or lost at each stage | ⬜ To do |
+| 7.8 | Understand the cost breakdown — why specialty is priced the way it is, and at what price point claims become implausible | ⬜ To do |
+| 7.9 | Know how to evaluate decaf — what processing methods matter and what to look for | ⬜ To do |
+| 7.10 | Understand what SCA and ECBC are and why they matter as references | ⬜ To do |
+| 7.11 | Know what cuppings, workshops, and courses exist in Malaga and Spain | ⬜ To do |
+| 7.12 | Understand direct trade — whether farms are contactable and what that relationship looks like | ⬜ To do |
 
 ---
 

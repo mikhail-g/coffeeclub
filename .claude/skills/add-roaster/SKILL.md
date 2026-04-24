@@ -59,6 +59,21 @@ Use `mcp__notion__notion-create-pages` — see `specs/notion-databases.md` for t
 
 Set all fields found: Name, Site, Shop URL, Instagram, Free Delivery From (€), Delivery Organization, Buy In Person, Address, Notes (quirks).
 
+**If a physical address was found in step 4**, geocode it with Nominatim to get coordinates for the `Location` place field:
+
+```bash
+curl "https://nominatim.openstreetmap.org/search?q=<url-encoded-address>&format=json&limit=1" \
+  -H "User-Agent: coffai-project"
+```
+
+Extract `lat` and `lon` from the first result. Include in the create call:
+- `place:Location:name` → roaster name
+- `place:Location:address` → full address string
+- `place:Location:latitude` → lat (number)
+- `place:Location:longitude` → lon (number)
+
+If Nominatim returns no results, try a shorter query (street + city, drop the local/unit number). See `specs/notion-databases.md` for full documentation of the place field format.
+
 Also pass the bullet-list page body directly in the `content` field of the same `notion-create-pages` call:
 
 ```

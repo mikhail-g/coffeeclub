@@ -23,3 +23,38 @@ Use `notion-search` with:
 Use `notion-fetch` directly. It is faster, deterministic, and returns full content with all properties and relation lists. Do not re-search when you already have the URL.
 
 Rule of thumb: **search to find, fetch to read.**
+
+## Location (place) field
+
+The `Location` field in the Roasters DB (and future Cafes DB) is type `place`. It requires four sub-properties passed as expanded keys:
+
+```json
+{
+  "place:Location:name":      "Roaster Name",
+  "place:Location:address":   "Street, Postal Code City, Province, Country",
+  "place:Location:latitude":  36.123,
+  "place:Location:longitude": -4.456
+}
+```
+
+`google_place_id` is optional and not used in this project.
+
+### Geocoding with Nominatim (OpenStreetMap)
+
+When a physical address is found during `/add-roaster`, look up coordinates using the free Nominatim API (no auth required):
+
+```bash
+curl "https://nominatim.openstreetmap.org/search?q=<url-encoded-address>&format=json&limit=1" \
+  -H "User-Agent: coffai-project"
+```
+
+Extract `lat` and `lon` from the first result. Pass them directly as `latitude` and `longitude`.
+
+Example:
+```bash
+curl "https://nominatim.openstreetmap.org/search?q=Calle+Beamar+3,+29649+Mijas+Costa&format=json&limit=1" \
+  -H "User-Agent: coffai-project"
+# → lat: 36.4887805, lon: -4.7271305
+```
+
+If Nominatim returns no results, try a shorter query (street name + city only, drop the local number).

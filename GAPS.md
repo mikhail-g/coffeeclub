@@ -78,3 +78,10 @@ https://www.notion.so/34af2b14316c81358962d2269ba3389c
 https://www.notion.so/34af2b14316c8166868ce9aa0b1ffc5d
 
 - **Delivery Organization** — carrier not named (site says 24/48h but no carrier mentioned)
+
+---
+
+### Cocóra
+https://www.notion.so/34cf2b14316c80f08f8dc51f9bdd9123
+
+All key fields populated.
