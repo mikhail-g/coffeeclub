@@ -67,6 +67,7 @@ If the product page is from a roaster with known quirks, read the corresponding 
 - [La Hacienda](references/lahacienda.es.md) — Spanish labels, WooCommerce (WordPress); country in title, sizes 250/500/1kg, images from wp-content uploads
 - [Mountain Coffee](references/specialtymountaincoffee.md) — Spanish labels, WooCommerce; ORIGEN contains country+region on one line, no SCA score, always Omni
 - [Cocóra](references/cocoracoffee.es.md) — English labels, Shopify; fields in body_html icon table (img alt text), Origin is "Region, Country", grind variants used to infer roast profile
+- [Nerja Coffee Roasters](references/nerjacoffeeroasters.md) — Spanish labels, WooCommerce; country from page title, data-product_variations for prices, multiple roast profiles per bean (Omni + Filter options)
 
 ## Rules
 
