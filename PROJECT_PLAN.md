@@ -69,6 +69,11 @@ This is the measure. Everything in this project either makes that morning better
 | 1.17 | Move Bertani Café from Roasters DB to Cafes DB — it is a cafe, not a roaster; the actual roaster behind its beans is "Café de Finca" | ⬜ To do |
 | 1.18 | Add "Café de Finca" as a roaster entry and re-map all Bertani beans to it in the Roaster relation field | ⬜ To do |
 | 1.19 | Define a canonical Roast Profile mapping in `specs/beans.md` — standardise the values (Filter / Espresso / Omni) and document how to map bag labels to them: brewer lists (V60, Chemex, AeroPress, Kalita → Filter), Spanish terms (Filtro, Espresso, Omni), mixed labels, etc. Update `/add-bean` to use that mapping | ✅ Done |
+| 1.20 | Sync Nerja Coffee Roasters offerings via `/sync-roaster` | ✅ Done |
+| 1.21 | Sync Cocóra offerings via `/sync-roaster` | ✅ Done |
+| 1.22 | Sync Santa Coffee offerings via `/sync-roaster` | ✅ Done |
+| 1.23 | Sync Delicotte offerings via `/sync-roaster` | ✅ Done |
+| 1.24 | Add parallel agent execution to `/sync-roaster` — Playwright-only rule, named sessions, agent pattern for bulk syncs, Last Synced update on roaster page | ✅ Done |
 
 ---
 

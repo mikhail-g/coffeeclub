@@ -91,5 +91,4 @@ All key fields populated.
 ### Nerja Coffee Roasters
 https://www.notion.so/34df2b14316c8152a7b4d141138c0660
 
-- **Roast Style** — set to Omni; also offers Filter profile per bean (add manually in Notion)
 - **Roast Date Provided** — not confirmed; check product pages when ordering

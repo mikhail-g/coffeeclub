@@ -59,6 +59,8 @@ For each missing offering (in Notion, not found on site):
 
 **Decaf Available** — If any bean has `decaf: true` (or `Decaf` checkbox checked), set the roaster's `Decaf Available` checkbox to checked via `notion-update-page`: `"Decaf Available": "__YES__"`. Do not set it to unchecked — only set it when decaf is confirmed present.
 
+**Last Synced** — Set the roaster page's `Last Synced` date to today via `notion-update-page`: `"date:Last Synced:start": "<YYYY-MM-DD>"`, `"date:Last Synced:is_datetime": 0`.
+
 ### 7. Report
 
 - Summary: N new offerings added, M already existed, P marked Unavailable
