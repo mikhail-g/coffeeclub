@@ -126,6 +126,37 @@ Roast Profile → <inference rule from variant titles or page label>
 <What to skip and why>
 ```
 
+### 6b. Seed the local cache
+
+After the Notion entry is created, update `.claude/cache/<domain>.json` with what is known.
+
+- `<domain>` is the bare hostname without `www.` and without `.com`/`.es` extension, matching the reference file name (e.g. `nerjacoffeeroasters` for `nerjacoffeeroasters.com`)
+- `id` is the Notion page UUID extracted from the URL returned by step 5 (last path segment, no dashes)
+- Include only the fields that were actually found; omit `free_delivery_from` or `delivery_org` if unknown
+
+**If the file already exists** — read it first, then update only the `roaster` object and `cached_at`. Do NOT touch `beans`, `beans_last_synced`, or any bean records.
+
+**If the file does not exist** — create it with an empty beans array:
+
+```json
+{
+  "roaster": {
+    "name": "<Roaster Name>",
+    "domain": "<domain.com>",
+    "id": "<notion-page-uuid>",
+    "notion_url": "https://www.notion.so/<id-no-dashes>",
+    "site": "<homepage url>",
+    "shop_url": "<shop url or null>",
+    "instagram": "<instagram url or null>",
+    "free_delivery_from": <number or null>,
+    "delivery_org": "<carrier name or null>",
+    "cached_at": "<ISO timestamp>"
+  },
+  "beans_last_synced": null,
+  "beans": []
+}
+```
+
 ### 7. Update add-bean/SKILL.md references section
 
 Add a bullet to the `## Roaster-specific references` section in `.claude/skills/add-bean/SKILL.md`:
