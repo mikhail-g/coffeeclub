@@ -5,6 +5,10 @@ allowed-tools: Bash, mcp__notion__notion-search, mcp__notion__notion-fetch, mcp_
 
 Sync coffee offerings for the roaster: $ARGUMENTS
 
+## Running in parallel
+
+When syncing multiple roasters at once, spawn one Agent per roaster using the Agent tool. Pass each agent this skill's full instructions plus the roaster name and a unique Playwright session name (e.g. `-s=<domain>`). Do not run multiple roasters inline in the main conversation.
+
 ## Process
 
 ### 1. Fetch roaster from Notion
@@ -42,9 +46,9 @@ Once all new offerings are extracted, create them all in a **single batched `not
 For each missing offering (in Notion, not found on site):
 - Update its Notion page: set `Availability` to `Unavailable` and `Last Updated` to today's date
 
-### 6. Update roaster Roast Style
+### 6. Update roaster Roast Style and Decaf Available
 
-Derive the union of all distinct Roast Profile values across every bean now linked to this roaster (existing + newly added). Update the roaster page's **Roast Style** multi-select to match.
+**Roast Style** — Derive the union of all distinct Roast Profile values across every bean now linked to this roaster (existing + newly added). Update the roaster page's **Roast Style** multi-select to match.
 
 - **Single value** — use `notion-update-page` (`update_properties`): `"Roast Style": "<value>"`
 - **Multiple values** — MCP cannot set multiple options; use the script instead:
@@ -52,6 +56,8 @@ Derive the union of all distinct Roast Profile values across every bean now link
   .claude/skills/sync-roaster/scripts/set-multi-select.sh "<page-id-dashed>" "Roast Style" Value1 Value2 ...
   ```
   The script reads `NOTION_ACCESS_KEY` from the environment (loaded from `.env`). Page ID must be dashed UUID format.
+
+**Decaf Available** — If any bean has `decaf: true` (or `Decaf` checkbox checked), set the roaster's `Decaf Available` checkbox to checked via `notion-update-page`: `"Decaf Available": "__YES__"`. Do not set it to unchecked — only set it when decaf is confirmed present.
 
 ### 7. Report
 
@@ -71,6 +77,7 @@ After all Notion writes complete, overwrite `.claude/cache/<domain>.json` with t
 
 ## Rules
 
+- **Never use `curl` or `WebFetch` to load product pages or listing pages.** Always use `playwright-cli` with the named session. The only permitted uses of `curl` in this skill are: Nominatim geocoding and the Shopify JSON API — and only when the roaster's reference file explicitly specifies Shopify.
 - Do not re-extract or overwrite data fields (origin, price, etc.) for existing entries — only update Availability when marking a bean Unavailable
 - If Shop URL is missing from the roaster's Notion entry, stop and ask the user to add it first
 - If the listing page requires scrolling or pagination, handle it before diffing
