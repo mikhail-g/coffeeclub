@@ -26,7 +26,7 @@ If $ARGUMENTS is a Notion URL or page ID → use `notion-fetch` directly.
 
 2. **Cache check** — look for `.claude/cache/<domain>.json`. If it exists and `beans_last_synced` is within 7 days of today, return results from the cache. Note "(cached, synced <date>)" in the output. Apply any additional filters (Country, Process, Availability) client-side from the cached records. Stop here.
 
-3. **Cache miss / expired** — fetch from Notion: `notion-fetch` the roaster page (using URL from step 1) → extract all `Beans` relation URLs → `notion-fetch` all bean pages in parallel. Then write or overwrite `.claude/cache/<domain>.json` with the full result (see cache format below) before returning.
+3. **Cache miss / expired** — fetch from Notion: `notion-fetch` the roaster page (using URL from step 1) → extract all `Beans` relation URLs → `notion-fetch` all bean pages in parallel. Then write or overwrite `.claude/cache/<domain>.json` with the full result (see cache format below) before returning. Populate **all** roaster fields from the Notion page properties — not just identity fields.
 
 This is the only reliable way to get all beans for a roaster — `notion-search` cannot filter by relation field values, and searching by roaster name or UUID in the Beans DB returns incomplete, mixed results.
 
@@ -53,6 +53,19 @@ Name, key properties, and Notion page URL for each result.
     "domain": "domain.com",
     "id": "<notion-page-uuid>",
     "notion_url": "https://www.notion.so/<id>",
+    "site": "<homepage url or null>",
+    "shop_url": "<shop url or null>",
+    "instagram": "<instagram url or null>",
+    "address": "<text address or null>",
+    "free_delivery_from": null,
+    "delivery_org": "<carrier or null>",
+    "buy_in_person": false,
+    "decaf_available": false,
+    "roast_style": [],
+    "roast_date_provided": false,
+    "sca_score_provided": false,
+    "notes": "<notes text or null>",
+    "last_synced": "<YYYY-MM-DD or null>",
     "cached_at": "2026-04-23T14:30:00Z"
   },
   "beans_last_synced": "2026-04-23T14:30:00Z",

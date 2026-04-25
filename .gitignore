@@ -10,3 +10,6 @@
 # Claude
 .claude/settings.local.json
 .claude/cache
+
+# env
+.env

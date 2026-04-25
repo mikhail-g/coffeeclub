@@ -42,16 +42,28 @@ Once all new offerings are extracted, create them all in a **single batched `not
 For each missing offering (in Notion, not found on site):
 - Update its Notion page: set `Availability` to `Unavailable` and `Last Updated` to today's date
 
-### 6. Report
+### 6. Update roaster Roast Style
+
+Derive the union of all distinct Roast Profile values across every bean now linked to this roaster (existing + newly added). Update the roaster page's **Roast Style** multi-select to match.
+
+- **Single value** — use `notion-update-page` (`update_properties`): `"Roast Style": "<value>"`
+- **Multiple values** — MCP cannot set multiple options; use the script instead:
+  ```bash
+  .claude/skills/update-roaster/scripts/set-multi-select.sh "<page-id-dashed>" "Roast Style" Value1 Value2 ...
+  ```
+  The script reads `NOTION_ACCESS_KEY` from the environment (loaded from `.env`). Page ID must be dashed UUID format.
+
+### 7. Report
 
 - Summary: N new offerings added, M already existed, P marked Unavailable
 - List names of added entries with their Notion page URLs
 - List names of entries marked Unavailable
+- Confirm the Roast Style value(s) set on the roaster page
 
-### 7. Update the local cache
+### 8. Update the local cache
 
 After all Notion writes complete, overwrite `.claude/cache/<domain>.json` with the full current bean list:
-- Build the complete list from: existing beans (from the Notion relation fetched in step 1) + newly added beans — with final Availability values applied (including any just marked Unavailable)
+- Build the complete list from: existing beans (from the Notion relation fetched in step 1) + newly added beans — with final Availability values applied (including any just marked Unavailable in step 5)
 - Use the cache format defined in `fetch-db/SKILL.md`
 - Populate the `roaster` section from the reference file (`Notion page URL` line → derive `id` from URL)
 - Set `beans_last_synced` to now; set `cached_at` on each bean record to now
