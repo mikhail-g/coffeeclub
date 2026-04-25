@@ -49,7 +49,7 @@ Derive the union of all distinct Roast Profile values across every bean now link
 - **Single value** — use `notion-update-page` (`update_properties`): `"Roast Style": "<value>"`
 - **Multiple values** — MCP cannot set multiple options; use the script instead:
   ```bash
-  .claude/skills/update-roaster/scripts/set-multi-select.sh "<page-id-dashed>" "Roast Style" Value1 Value2 ...
+  .claude/skills/sync-roaster/scripts/set-multi-select.sh "<page-id-dashed>" "Roast Style" Value1 Value2 ...
   ```
   The script reads `NOTION_ACCESS_KEY` from the environment (loaded from `.env`). Page ID must be dashed UUID format.
 

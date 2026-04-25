@@ -34,7 +34,7 @@ Not in scope:
 | Address | Text | Street + neighborhood + city. Enough to find the physical location. |
 | Location | URL | Google Maps link for navigation. Complements Address — Address for reading, Location for getting there. |
 | Site | URL | Main website or online shop |
-| Shop URL | URL | Direct link to the page listing all coffee offerings. Different from Site (homepage). Used by update-roaster skill. |
+| Shop URL | URL | Direct link to the page listing all coffee offerings. Different from Site (homepage). Used by sync-roaster skill. |
 | Instagram | URL | Primary social account — useful for tracking new bean releases |
 
 ### Sourcing logistics

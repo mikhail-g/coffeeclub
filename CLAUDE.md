@@ -35,7 +35,7 @@ Claude Code skills live in `.claude/skills/`. Each skill automates a recurring w
 
 - `/add-roaster <URL>` — researches a roaster's homepage with Playwright, creates a Notion Roasters DB entry, writes a field-mapping reference file for future bean imports, updates GAPS.md, and adds structured content to the Notion page body
 - `/add-bean <URL>` — opens a product page, extracts all fields (origin, process, variety, SCA score, prices, image), and creates a Beans DB entry
-- `/update-roaster <name>` — fetches the roaster's current product listing and adds any offerings not yet in the Beans DB
+- `/sync-roaster <name>` — fetches the roaster's current product listing and adds any offerings not yet in the Beans DB
 
 Roaster-specific field mappings (label language, size variants, image extraction method) live in `.claude/skills/add-bean/references/`.
 

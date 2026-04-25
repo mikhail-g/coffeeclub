@@ -33,7 +33,7 @@ Not in scope:
 | Name | Title | Coffee name as labeled by the roaster |
 | Roaster | Relation → Roasters DB | Which roaster offers this coffee. Two-way: Roasters DB gains a "Beans" column. |
 | URL | URL | Link to the product page on the roaster's website |
-| Availability | Select | Available / Unavailable. Set to Available on creation; update-roaster marks Unavailable when no longer found on the roaster's site. |
+| Availability | Select | Available / Unavailable. Set to Available on creation; sync-roaster marks Unavailable when no longer found on the roaster's site. |
 
 ### Origin
 

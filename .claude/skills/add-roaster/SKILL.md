@@ -91,7 +91,7 @@ Leave out any bullet where the data was not found. This eliminates the need for 
 
 ### 6. Create add-bean reference file
 
-Write `.claude/skills/add-bean/references/<domain>.md` using this format. **Include the Notion page URL returned by step 5 as the first line after the heading** — this allows future `add-bean` and `update-roaster` calls to skip `notion-search` entirely.
+Write `.claude/skills/add-bean/references/<domain>.md` using this format. **Include the Notion page URL returned by step 5 as the first line after the heading** — this allows future `add-bean` and `sync-roaster` calls to skip `notion-search` entirely.
 
 ```
 # Roaster Name (domain.com) — field locations

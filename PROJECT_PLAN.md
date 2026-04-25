@@ -52,12 +52,12 @@ This is the measure. Everything in this project either makes that morning better
 |---|---|---|
 | 1.1 | Set up Roasters DB, Beans DB, and Tries DB in Notion | ✅ Done |
 | 1.2 | Publish Coffee Club landing page with inline views of all three databases | ✅ Done |
-| 1.3 | Build `/add-bean` and `/update-roaster` skills for syncing offerings | ✅ Done |
+| 1.3 | Build `/add-bean` and `/sync-roaster` skills for syncing offerings | ✅ Done |
 | 1.4 | Sync Mountain Coffee offerings (10 beans) | ✅ Done |
-| 1.5 | Sync Artisan Coffee offerings via `/update-roaster` | ✅ Done |
-| 1.6 | Sync Kima Coffee offerings via `/update-roaster` | ✅ Done |
-| 1.7 | Sync Bertani Café offerings via `/update-roaster` | ✅ Done |
-| 1.8 | Sync Brewing Dealers offerings via `/update-roaster` | ✅ Done |
+| 1.5 | Sync Artisan Coffee offerings via `/sync-roaster` | ✅ Done |
+| 1.6 | Sync Kima Coffee offerings via `/sync-roaster` | ✅ Done |
+| 1.7 | Sync Bertani Café offerings via `/sync-roaster` | ✅ Done |
+| 1.8 | Sync Brewing Dealers offerings via `/sync-roaster` | ✅ Done |
 | 1.9 | Add La Hacienda offerings manually (site blocked by bot protection) | ✅ Done |
 | 1.10 | Fill in quality and logistics fields for Artisan, Kima, Bertani, La Hacienda | ✅ Done |
 | 1.11 | Design and implement Recipes DB — structured brew parameters, referenced from Tries as base recipe with per-session adjustments | ✅ Done |
@@ -103,7 +103,7 @@ Introduce contrast moments during office brews — two beans, two cups at once, 
 |---|---|---|
 | 4.1 | Add `/fetch-db` skill — queries Notion with filters rather than fetching all entries; reduces empty-filter calls when looking up a specific roaster or bean | ✅ Done |
 | 4.2 | Document how to set the Location (place) field — required sub-fields (name, address, latitude, longitude), geocoding approach; referenced by `/add-roaster` and future `/add-cafe` | ✅ Done |
-| 4.3 | Investigate caching Notion DB results locally — reduce redundant fetches, speed up skills like `/fetch-db` and `/update-roaster` | ✅ Done |
+| 4.3 | Investigate caching Notion DB results locally — reduce redundant fetches, speed up skills like `/fetch-db` and `/sync-roaster` | ✅ Done |
 
 ---
 

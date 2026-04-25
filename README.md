@@ -25,11 +25,11 @@ Claude Code skills that keep the databases up to date:
 
 - `/add-roaster <URL>` — opens a roaster's homepage, extracts all available fields, creates a Notion entry, writes a field-mapping reference for future bean imports, and records what's still unknown in `GAPS.md`
 - `/add-bean <URL>` — opens a product page, extracts origin, process, variety, SCA score, prices, and image, and creates a Beans DB entry
-- `/update-roaster <name>` — fetches the roaster's current listing and adds any new offerings not yet in the Beans DB
+- `/sync-roaster <name>` — fetches the roaster's current listing and adds any new offerings not yet in the Beans DB
 
 Roaster-specific quirks (label language, size variants, image extraction) are captured in `.claude/skills/add-bean/references/` so each roaster only needs to be figured out once.
 
-Skills cache bean data locally in `.claude/cache/<domain>.json` after each fetch. `/fetch-db` serves roaster-scoped queries from the cache when it's less than 7 days old — skipping all Notion API calls. The cache is refreshed automatically by `/add-bean` (appends the new entry) and `/update-roaster` (overwrites with the full current list).
+Skills cache bean data locally in `.claude/cache/<domain>.json` after each fetch. `/fetch-db` serves roaster-scoped queries from the cache when it's less than 7 days old — skipping all Notion API calls. The cache is refreshed automatically by `/add-bean` (appends the new entry) and `/sync-roaster` (overwrites with the full current list).
 
 ## Tracking
 

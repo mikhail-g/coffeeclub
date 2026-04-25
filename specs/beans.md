@@ -40,7 +40,7 @@ The `Roast Profile` property on bean pages is a single-select with three canonic
 
 ### Roasters DB — Roast Style field
 
-The `Roast Style` field on roaster pages (same three values, multi-select) should hold the union of all `Roast Profile` values across the roaster's beans. It is populated manually or via `/update-roaster` after beans are synced.
+The `Roast Style` field on roaster pages (same three values, multi-select) should hold the union of all `Roast Profile` values across the roaster's beans. It is populated manually or via `/sync-roaster` after beans are synced.
 
 Note: the Notion MCP cannot set multiple multi-select values in a single API call — only one value can be written at a time. If a roaster has more than one profile (e.g. Filter + Omni), the additional values must be added manually in Notion.
 
